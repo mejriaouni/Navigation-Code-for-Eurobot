@@ -1,0 +1,22 @@
+Welcome to help guide of robot navi 2020
+
+These are the step you must follow to use this library:
+
+1- Set the right and the left radius of both wheels and the spacing with:
+set_dimentions(float right_wheel_radius, float left_wheel_radius, float wheels_spacing);
+
+2- Attach the motors to their timer and corresponding channels:
+void set_motors (TIM_HandleTypeDef* htim, int MAX_PWM, uint32_t forward_right, uint32_t backward_right, uint32_t forward_left, uint32_t backward_left);
+
+3- Attach the encoders to their corresponding timers:
+void set_right_encoder(TIM_HandleTypeDef* htim, TIM_TypeDef* TIM, int resolution, int precision);
+void set_left_encoder(TIM_HandleTypeDef* htim, TIM_TypeDef* TIM, int resolution, int precision);
+
+4- Make an high frequency (1kHz) timer interrupt to update the position and these in it:
+void update_position(void);
+void PWM_sign_change_counter(void);
+
+5- Set the minimum PWM for both wheels
+void set_PWM_min (int PWM_Min_R, int PWM_Min_L, int PWM_Min_R_Rot, int PWM_Min_L_Rot);
+
+Have fun :D (Stop this nonsens, it's really a nightmare)
